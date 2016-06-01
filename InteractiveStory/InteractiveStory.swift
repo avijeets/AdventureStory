@@ -82,7 +82,7 @@ extension Page {
 }
 
 struct Adventure {
-	static var storyAdv: Page {
+	static var story: Page {
 		let returnTrip = Page(story: .ReturnTrip)
 		let touchDown = returnTrip.addChoice("Stop and Investigate", story: .TouchDown)
 		let homeward = returnTrip.addChoice("Continue Home to Earth", story: .Homeward)
