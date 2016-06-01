@@ -51,6 +51,7 @@ class PageController: UIViewController {
             
             if let secondChoice = page.secondChoice {
                 secondChoiceButton.setTitle(secondChoice.title, forState: .Normal)
+                secondChoiceButton.addTarget(self, action: #selector(PageController.loadSecondChoice), forControlEvents: .TouchUpInside)
             }
         }
     }
