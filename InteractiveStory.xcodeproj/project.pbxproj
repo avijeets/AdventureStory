@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8A36D5421CFE38530042C0D7 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A36D5411CFE38530042C0D7 /* PageController.swift */; };
+		8A43D1351CFEB35100FE1421 /* HappyEnding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A43D1321CFEB35100FE1421 /* HappyEnding.wav */; };
+		8A43D1361CFEB35100FE1421 /* Ominous.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A43D1331CFEB35100FE1421 /* Ominous.wav */; };
+		8A43D1371CFEB35100FE1421 /* PageTurn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A43D1341CFEB35100FE1421 /* PageTurn.wav */; };
 		8AF25E881CFD5B200001994B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF25E871CFD5B200001994B /* AppDelegate.swift */; };
 		8AF25E8A1CFD5B200001994B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF25E891CFD5B200001994B /* ViewController.swift */; };
 		8AF25E8D1CFD5B200001994B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF25E8B1CFD5B200001994B /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		8A36D5411CFE38530042C0D7 /* PageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		8A43D1321CFEB35100FE1421 /* HappyEnding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HappyEnding.wav; sourceTree = "<group>"; };
+		8A43D1331CFEB35100FE1421 /* Ominous.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Ominous.wav; sourceTree = "<group>"; };
+		8A43D1341CFEB35100FE1421 /* PageTurn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PageTurn.wav; sourceTree = "<group>"; };
 		8AF25E841CFD5B200001994B /* InteractiveStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractiveStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF25E871CFD5B200001994B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AF25E891CFD5B200001994B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,10 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A43D12F1CFEB30600FE1421 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A43D1321CFEB35100FE1421 /* HappyEnding.wav */,
+				8A43D1331CFEB35100FE1421 /* Ominous.wav */,
+				8A43D1341CFEB35100FE1421 /* PageTurn.wav */,
+			);
+			name = Resources;
+			path = InteractiveStory;
+			sourceTree = "<group>";
+		};
 		8AF25E7B1CFD5B200001994B = {
 			isa = PBXGroup;
 			children = (
 				8AF25E861CFD5B200001994B /* InteractiveStory */,
+				8A43D12F1CFEB30600FE1421 /* Resources */,
 				8AF25E851CFD5B200001994B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,8 +147,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A43D1361CFEB35100FE1421 /* Ominous.wav in Resources */,
 				8AF25E921CFD5B200001994B /* LaunchScreen.storyboard in Resources */,
 				8AF25E8F1CFD5B200001994B /* Assets.xcassets in Resources */,
+				8A43D1351CFEB35100FE1421 /* HappyEnding.wav in Resources */,
+				8A43D1371CFEB35100FE1421 /* PageTurn.wav in Resources */,
 				8AF25E8D1CFD5B200001994B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
