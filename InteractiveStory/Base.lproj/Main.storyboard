@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Page Controller-->
@@ -45,18 +46,33 @@
                                     <segue destination="9KE-Xe-zB3" kind="show" identifier="startAdventure" id="x7j-xs-qcv"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="quk-eM-Ra5">
+                                <rect key="frame" x="44" y="452" width="512" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cte-CI-iAl"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="48L-9M-4HS" secondAttribute="bottom" constant="48" id="2tH-Gp-wlA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bph-AS-nqk" secondAttribute="bottom" id="5kU-15-gkh"/>
+                            <constraint firstItem="48L-9M-4HS" firstAttribute="top" secondItem="quk-eM-Ra5" secondAttribute="bottom" constant="40" id="Ao1-vV-nKT"/>
                             <constraint firstItem="Bph-AS-nqk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QcR-uk-gLO"/>
                             <constraint firstAttribute="trailing" secondItem="Bph-AS-nqk" secondAttribute="trailing" id="WyE-Od-sma"/>
+                            <constraint firstItem="quk-eM-Ra5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="dLg-qf-JNr"/>
                             <constraint firstItem="Bph-AS-nqk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gIN-oz-XGE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="quk-eM-Ra5" secondAttribute="trailing" constant="24" id="gdJ-r6-vJI"/>
                             <constraint firstItem="48L-9M-4HS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p0b-1w-9CD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="km2-Uh-mZ0"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="quk-eM-Ra5" id="PdJ-5U-5va"/>
+                        <outlet property="textFieldBottomConstraint" destination="Ao1-vV-nKT" id="XtL-u1-vMG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
