@@ -22,15 +22,15 @@ enum Story {
 	
 	var rawValue: String {
 		switch self {
-		case .ReturnTrip: return "ReturnTrip"
-		case .TouchDown: return "TouchDown"
-		case .Homeward: return "Homeward"
-		case .Rover: return "Rover"
-		case .Cave: return "Cave"
-		case .Crate: return "Crate"
-		case .Monster: return "Monster"
-		case .Droid: return "Droid"
-		case .Home: return "Home"
+			case .ReturnTrip: return "ReturnTrip"
+			case .TouchDown: return "TouchDown"
+			case .Homeward: return "Homeward"
+			case .Rover: return "Rover"
+			case .Cave: return "Cave"
+			case .Crate: return "Crate"
+			case .Monster: return "Monster"
+			case .Droid: return "Droid"
+			case .Home: return "Home"
 		}
 	}
 }
@@ -44,9 +44,12 @@ extension Story {
 		let fileName: String
 		
 		switch self {
-		case .Droid, .Home: fileName = "HappyEnding"
-		case .Monster: fileName = "Ominous"
-		default: fileName = "PageTurn"
+			case .Droid, .Home:
+				fileName = "HappyEnding"
+			case .Monster:
+				fileName = "Ominous"
+			default:
+				fileName = "PageTurn"
 		}
 		
 		let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")!
@@ -97,12 +100,12 @@ extension Page {
     }
     func addChoice(title: String, page: Page) -> Page{
         switch(firstChoice,secondChoice) {
-        case (.Some, .Some):
-            break
-        case (.None, .None), (.None, .Some):
-            firstChoice = (title, page)
-        case (.Some, .None):
-            secondChoice = (title, page)
+			case (.Some, .Some):
+				break
+			case (.None, .None), (.None, .Some):
+				firstChoice = (title, page)
+			case (.Some, .None):
+				secondChoice = (title, page)
         }
         return page
     }

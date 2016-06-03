@@ -20,8 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
-//        let story = Page(story: .TouchDown)
-//       story.firstChoice = (title: "Some Title", page: Page(story: .Droid))
+        // let story = Page(story: .TouchDown)
+        // story.firstChoice = (title: "Some Title", page: Page(story: .Droid))
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         pageController.page = Adventure.story(name)
                     }
                 }
-            } catch Error.NoName {
+            }
+            catch Error.NoName {
                 let alertController = UIAlertController(title: "Name Not Provided", message: "Provide a name to start your story.", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(action)
