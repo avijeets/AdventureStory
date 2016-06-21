@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     enum Error : ErrorType {
         case NoName
     }
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
@@ -19,14 +20,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        
-        // let story = Page(story: .TouchDown)
-        // story.firstChoice = (title: "Some Title", page: Page(story: .Droid))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,11 +43,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(action)
                 presentViewController(alertController, animated: true, completion: nil)
-            } catch let error {
+            }
+            catch let error {
                 fatalError("\(error)")
             }
         }
     }
+    
+    // MARK: - Making the Keyboard
     func keyboardWillShow(notification: NSNotification) {
         if let userInfoDict = notification.userInfo, keyboardFrameValue = userInfoDict [UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardFrame = keyboardFrameValue.CGRectValue()

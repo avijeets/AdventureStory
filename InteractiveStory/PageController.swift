@@ -32,7 +32,6 @@ class PageController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .whiteColor()
 
-        // Do any additional setup after loading the view.
         if let page = page {
             artwork.image = page.story.artwork
             let attributedString = NSMutableAttributedString(string: page.story.text)
@@ -63,7 +62,7 @@ class PageController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // all subviews
     override func viewWillLayoutSubviews() {
         view.addSubview(artwork)
         artwork.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +97,8 @@ class PageController: UIViewController {
             secondChoiceButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -32.0)
             ])
     }
+    
+    // loading choices
     func loadFirstChoice () {
         if let page = page, firstChoice = page.firstChoice {
             let nextPage = firstChoice.page
@@ -114,6 +115,8 @@ class PageController: UIViewController {
             navigationController?.pushViewController(pageController, animated: true)
         }
     }
+    
+    // loading up sounds
     func playAgain() {
         navigationController?.popToRootViewControllerAnimated(true)
     }

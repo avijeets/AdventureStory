@@ -51,7 +51,6 @@ extension Story {
 			default:
 				fileName = "PageTurn"
 		}
-		
 		let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")!
 		return NSURL(fileURLWithPath: path)
 	}
@@ -82,9 +81,8 @@ extension Story {
 
 class Page {
     let story: Story
-    
     typealias Choice = (title: String, page: Page)
-    
+	
     var firstChoice: Choice?
     var secondChoice: Choice?
     
@@ -98,6 +96,7 @@ extension Page {
         let page = Page(story: story)
         return addChoice(title, page: page)
     }
+	
     func addChoice(title: String, page: Page) -> Page{
         switch(firstChoice,secondChoice) {
 			case (.Some, .Some):
@@ -128,7 +127,6 @@ struct Adventure {
 		
 		cave.addChoice("Continue towards faint light", story: .Droid(name))
 		cave.addChoice("Refill the ship and explore the rover", page: rover)
-		
 		crate.addChoice("Explore the Rover", page: rover)
 		crate.addChoice("Use the key", story: .Monster)
 		
