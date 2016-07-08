@@ -9,17 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
+    //error handling
     enum Error : ErrorType {
         case NoName
     }
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        //for bringing view up when keyboard is present
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil) //show
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil) //hide
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,18 +36,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if name == "" {
                         throw Error.NoName
                     }
+                    //if everything is good, things continue
                     if let pageController = segue.destinationViewController as? PageController {
                         pageController.page = Adventure.story(name)
                     }
                 }
             }
-            catch Error.NoName {
+            catch Error.NoName { // error handled empty box
                 let alertController = UIAlertController(title: "Name Not Provided", message: "Provide a name to start your story.", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(action)
                 presentViewController(alertController, animated: true, completion: nil)
             }
-            catch let error {
+            catch let error { //any other issue
                 fatalError("\(error)")
             }
         }

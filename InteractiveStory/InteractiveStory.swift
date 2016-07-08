@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// every view
 enum Story {
     case ReturnTrip (String)
     case TouchDown
@@ -35,6 +36,7 @@ enum Story {
 	}
 }
 
+//getting the artwork from the enum's raw values
 extension Story {
     var artwork: UIImage {
         return UIImage(named: self.rawValue)!
@@ -42,8 +44,7 @@ extension Story {
 	
 	var soundEffectURL: NSURL {
 		let fileName: String
-		
-		switch self {
+		switch self { // specific sounds
 			case .Droid, .Home:
 				fileName = "HappyEnding"
 			case .Monster:
@@ -51,10 +52,12 @@ extension Story {
 			default:
 				fileName = "PageTurn"
 		}
+		//regular file name for sound effect
 		let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "wav")!
 		return NSURL(fileURLWithPath: path)
 	}
-    
+	
+	//all text for views
     var text: String {
         switch self {
         case .ReturnTrip(let name):

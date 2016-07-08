@@ -41,16 +41,18 @@ class PageController: UIViewController {
             attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
             storyLabel.attributedText = attributedString
             
-            if let firstChoice = page.firstChoice {
+            
+            //bring up first, pitfall, or second choice
+            if let firstChoice = page.firstChoice { // first
                 firstChoiceButton.setTitle(firstChoice.title, forState: .Normal)
                 firstChoiceButton.addTarget(self, action: #selector(PageController.loadFirstChoice), forControlEvents: .TouchUpInside)
             }
-            else {
+            else { // pitfall
                 firstChoiceButton.setTitle("Play again!", forState: .Normal)
                 firstChoiceButton.addTarget(self, action: #selector(PageController.playAgain), forControlEvents: .TouchUpInside)
             }
             
-            if let secondChoice = page.secondChoice {
+            if let secondChoice = page.secondChoice { // second
                 secondChoiceButton.setTitle(secondChoice.title, forState: .Normal)
                 secondChoiceButton.addTarget(self, action: #selector(PageController.loadSecondChoice), forControlEvents: .TouchUpInside)
             }
@@ -59,13 +61,15 @@ class PageController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // all subviews
     override func viewWillLayoutSubviews() {
+        //bring up artwork subview
         view.addSubview(artwork)
         artwork.translatesAutoresizingMaskIntoConstraints = false
+        
+        //layouts for artwork
         NSLayoutConstraint.activateConstraints([
             artwork.topAnchor.constraintEqualToAnchor(view.topAnchor),
             artwork.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
@@ -73,9 +77,12 @@ class PageController: UIViewController {
             artwork.leftAnchor.constraintEqualToAnchor(view.leftAnchor)
         ])
         
+        //bring up storyLabel subview
         view.addSubview(storyLabel)
         storyLabel.translatesAutoresizingMaskIntoConstraints = false
         storyLabel.numberOfLines = 0
+        
+        //layouts for storyLabel
         NSLayoutConstraint.activateConstraints([
             storyLabel.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 16.0),
             storyLabel.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -16.0),
@@ -83,19 +90,25 @@ class PageController: UIViewController {
             //storyLabel.bottomAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 48.0)
         ])
         
+        //bring up firstChoice
         view.addSubview(firstChoiceButton)
         firstChoiceButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        //layouts for firstChoice
         NSLayoutConstraint.activateConstraints([
             firstChoiceButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
             firstChoiceButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -80.0)
-            ])
+        ])
         
+        //bring up secondChoice
         view.addSubview(secondChoiceButton)
         secondChoiceButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        //layours for secondChoice
         NSLayoutConstraint.activateConstraints([
             secondChoiceButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
             secondChoiceButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -32.0)
-            ])
+        ])
     }
     
     // loading choices
