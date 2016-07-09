@@ -82,20 +82,23 @@ extension Story {
     }
 }
 
+//main structural class
 class Page {
     let story: Story
     typealias Choice = (title: String, page: Page)
 	
     var firstChoice: Choice?
     var secondChoice: Choice?
-    
+	
+	//initializing story constant
     init(story: Story) {
         self.story = story
     }
 }
 
 extension Page {
-    func addChoice(title: String, story: Story) -> Page { // method overloading w/ different parameters
+	// method overloading with different parameters
+    func addChoice(title: String, story: Story) -> Page {
         let page = Page(story: story)
         return addChoice(title, page: page)
     }
@@ -112,7 +115,7 @@ extension Page {
         return page
     }
 }
-
+//for every title on adventure
 struct Adventure {
 	static func story(name: String) -> Page {
 		let returnTrip = Page(story: .ReturnTrip(name))
